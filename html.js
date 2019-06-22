@@ -53,13 +53,21 @@ window.onload = function () {
         t= setInterval(page_next_2.onclick,2000);
     }
     page_next_2.onclick = function () {
-            if(!flag){
+      /*      if(!flag){
             return;
         }
         flag=false;
         next--;
         if(next < 0){
             next = li3.length - 1;
+        }*/
+        if(!flag){
+            return;
+        }
+        flag = false;
+        next++;
+        if(next == li3.length){
+            next = 0;
         }
         li3[next].style.left = -w + 'px';
         li4[current].classList.remove('hot6');
@@ -71,14 +79,22 @@ window.onload = function () {
         current = next;
     };
     page_next_1.onclick = function () {
-        if(!flag){
+  /*      if(!flag){
             return;
     }
         flag = false;
         next++;
         if(next == li3.length){
             next = 0;
-        }
+        }*/
+              if(!flag){
+          return;
+      }
+      flag=false;
+      next--;
+      if(next < 0){
+          next = li3.length - 1;
+      }
         li3[next].style.left = w + 'px';
         li4[current].classList.remove('hot6');
         li4[next].classList.add('hot6');
@@ -88,6 +104,7 @@ window.onload = function () {
         });
         current = next;
     }
+
     for(let i=0;i<li4.length;i++){
         li4[i].onclick=function () {
             if(next===i){
@@ -109,7 +126,7 @@ window.onload = function () {
             current=next;
 
         }
-    }
+    };
 
     let newslist=document.querySelectorAll('.newslist li');
     let newslistP=document.querySelectorAll('.newslist p');
@@ -129,7 +146,6 @@ window.onload = function () {
     }
 
 
-
     /* page_next_2.onclick = function(){
       index1++;
       if(index1 == 4){
@@ -137,11 +153,11 @@ window.onload = function () {
       }
       li3.forEach(function (ele){
               ele.style.zIndex = 1;
-      });*/
- /*     for(let i = 0;i<li3.length;i++){
+      });
+      for(let i = 0;i<li3.length;i++){
           li3[i].style.zIndex = 1;
-      }*/
-/*      console.log(li3[index1])
+      }
+      console.log(li3[index1])
       li3[index1].style.zIndex = 999;
           return false;
   }*/
@@ -167,7 +183,7 @@ window.onload = function () {
     console.log(li4);*/
 //延迟加载
     let viewH =window.innerHeight;
-    let imgs = document.querySelectorAll('.lazyload');
+    let imgs = document.querySelectorAll('.lazy');
     let positionArr = [];
     imgs.forEach(function (ele) {
         positionArr.push(ele.offsetTop);
@@ -176,10 +192,10 @@ window.onload = function () {
     window.onscroll = function () {
         let scrolltop = document.documentElement.scrollTop;
         for(let i=0;i<positionArr.length;i++){
-            if(scrolltop + viewH >= positionArr[i]){
-                if(!imgs[i].src){
-                    imgs[i].src = imgs[i].getAttribute('aa');
-                }
+                    if(scrolltop + viewH >= positionArr[i]){
+                        if(!imgs[i].src){
+                            imgs[i].src = imgs[i].getAttribute('aa');
+                        }
             }
         }
 
