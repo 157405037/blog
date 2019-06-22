@@ -1,50 +1,75 @@
-window.addEventListener('load',function () {
-    let thumb =document.querySelectorAll('img');
-    let prevThumb = 0;
-    let index;
-    for(let i =0;i<thumb.length;i++){
-        thumb[i].onclick = function () {
-            thumb[prevThumb].style.opacity = 0.7;
-            this.style.opacity = 1;
-            prevThumb = i;
-            index = i;
+window.addEventListener('load',function(){
+    let thumb=document.querySelectorAll('.tx img');
+    //选择头像
+    let prevThumb=0;
+    for(let i=0;i<thumb.length;i++){
+        thumb[i].onclick=function(){
+            thumb[prevThumb].style.opacity=0.7;
+            this.style.opacity=1;
+            prevThumb=i;
         }
     }
-    let spans = document.getElementById('inputSpan');
-    let textarea = document.querySelector('textarea');
-    let span1 = document.getElementById('inputSpan1');
-    textarea.onkeyup = function () {
-        let value = this.value;
-        spans.innerText = value.length;
-        span1.innerText = 160 - spans.innerText;
+    //已输入
+    let spans=document.querySelector('#inputSpan');
+    let spans1=document.querySelector('#inputSpan1');
+    let textarea=document.querySelector('#lytext');
+    textarea.onkeyup=function(){
+        let value=this.value;
+        spans.innerHTML=value.length;
+        spans1.innerHTML=textarea.maxLength-value.length;
     }
+    //提交
+    let message=document.querySelector('#message');
+    let submit=document.querySelector('input[type=submit]');
+    let userName=document.querySelector("#name");
+    let form=document.getElementById("form");
 
-    let message = document.querySelector('.message');
-    let submit = document.querySelector('input[type=submit]');
-    // let messageBox = document.querySelector('form > ul > li:last-child')
-    submit.onclick = function (e) {
+    submit.onclick=function(e){
         e.preventDefault();
-        let userName = document.querySelector('input[type=text]');
-        let thumbs = thumb[index].src;
-        let users = userName.value.trim();
-        let time = new Date().toLocaleDateString();
-        let content = textarea.value;
-        let obj = {thumbs, users, time, content};
+        let thumbs=thumb[prevThumb].src;
+        let users=userName.value.trim();
+        let time =new Date().toISOString().substr(0,10);
+        let content =textarea.value;
+        let obj={thumbs,users,time,content};
+        if(users.length>10){
+            alert('姓名不能过长')
+            return;
+        }else
+        if(users.length==0){
+            alert('姓名不能为空')
+            return;
+        }else if(content==0){
+            alert('输入内容不能为空')
+            return;
+        }
         insertMessage(obj);
 
-        function insertMessage({}) {
-            let str = `
-        <ul class="message">
-           <li>
-               <div class="thumb"><img src="${thumbs}" alt="fail"></div>
-               <div class="text">
-                    <p><b>${users}</b><span>${time}</span></p>
-                    <p>${content}</p>
-               </div>
-           </li>
-        </ul>       
-        `;
-            message.innerHTML = message.innerHTML+str;
-        }
     }
-});
+    document.getElementById("form");
+
+
+    function insertMessage({thumbs,users,time,content}){
+        let str=`
+           
+                <ul>
+                    <li>
+                        <div class="user">
+                            <div class="tx pl"><img src="${thumbs}" alt=""></div>
+                            <div class="messageContent">
+                                <div class="userName">${users}<span class="userNameSpan">${time}</span></div>
+                                <div class="me">${content}</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+        `;
+        message.innerHTML =str +message.innerHTML;
+        form.reset();
+        init();
+    }
+    function init(){
+        thumb[prevThumb].style.opacity=0.7;
+        thumb[0].style.opacity=1;
+        prevThumb=0;
+    }
+})

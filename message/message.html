@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>留言</title>
-    <script src="./message.js"></script>
-    <link rel="stylesheet" href="./message.css">
+    <script src="message.js"></script>
+    <link rel="stylesheet" href="message.css">
 </head>
 <body>
 <div class="header">
     <div class="header-box">
         <div class="header-1">
-            <a class="header-1-1" href="">王瑞仁的博客</a>
+            <a class="header-1-1" href="" id="home">王瑞仁的博客</a>
         </div>
         <div class="header-2">
             <ul>
-                <li><a href="../html.html">网站首页</a></li>
-                <li><a href="" style="color: #00c1de">个人博客日记</a></li>
-                <li><a href="">网页制作</a></li>
+                <li><a href="" style="color: #00c1de">网站首页</a></li>
+                <li><a href="./blog%20diary/diary.html">个人博客日记</a></li>
+                <li><a href="">网页制作</a>
+                    <!--<ul class="slideDown">
+                        <div>CSS3|Html5</div>
+                        <div>网站建设</div>
+                        <div>推荐工具</div>
+                    </ul>-->
+                </li>
                 <li><a href="">设计心得</a></li>
-                <li><a href="../blog%20me/my.html">关于我</a></li>
-                <li><a href="../blog%20time/time.html">时间轴</a></li>
+                <li><a href="./blog me/my.html">关于我</a></li>
+                <li><a href="./blog%20time/time.html">时间轴</a></li>
                 <li><a>博客导航</a></li>
-                <li><a>留言</a></li>
+                <li><a href="./message/message.html">留言</a></li>
             </ul>
         </div>
         <div class="header-3">
@@ -32,7 +38,7 @@
 
 <div class="list">
     <div class="title">留言</div>
-    <form action="" method="post" name="form1" class="form">
+    <form action="" method="post" name="form1" id="form">
         <p><strong>来说点儿什么吧...</strong>
         </p>
         <p>
@@ -43,15 +49,15 @@
             选择头像: *
         </p>
         <div class="choTx" style="overflow: hidden">
-            <div class="tx"><img style="opacity:1" src="../img//tx1.jpg" alt=""></div>
+            <div class="tx"><img style="opacity:1" src="../img/tx1.jpg" alt=""></div>
             <div class="tx"><img src="../img/tx2.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx3.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx4.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx5.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx6.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx7.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx8.jpg" alt=""></div>
-            <div class="tx"><img src="../img//tx9.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx3.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx4.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx5.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx6.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx7.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx8.jpg" alt=""></div>
+            <div class="tx"><img src="../img/tx9.jpg" alt=""></div>
         </div>
         <p><div>留言内容:</div> </p>
         <textarea  name="lytext"  id="lytext" cols="160" rows="12" placeholder="来说点什么吧"  maxlength="100" required></textarea>
@@ -61,35 +67,25 @@
             <input class="reset" type="reset" value="重置">
         </p>
     </form>
-    <div class="message" id="message">
-
-    </div>
+    <div class="message" id="message"></div>
 </div>
 
-<footer>
-    <div class="hezi">
-        <div class="img">
-            <ul>
-                <li>
-                    <img src="../img/timg.gif">
-                    <span>微信公众号</span>
-                </li>
-                <li>
-                    <img src="../img/timg.gif">
-                    <span class="a">我的微信</span>
-                </li>
-            </ul>
+<div class="bottom1">
+    <div class="cold">
+        <div class="bottom1-1">
+            <img src="../img/timg.gif">
+            <p>微信公众号</p>
         </div>
-        <div class="climet">
-            <p>
-                <b>站点声明</b>
-            </p>
-            <p>1、本站个人博客模板，均为王瑞仁本人设计，个人可以使用，但是未经许可不得用于任何商业目的。</p>
-            <p>2、所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：157405037@qq.com</p>
-            <p>3、不知道该写什么瞎写一句吧，瑞仁最帅。</p>
-
+        <div class="bottom1-1">
+            <img src="../img/timg.gif">
+            <p>我的微信</p>
         </div>
     </div>
-</footer>
+    <div class="bottom1-2">
+        <p>站点声明：</p>
+        <span>1、本站个人博客模板，均为王瑞仁本人设计，个人可以使用，但是未经许可不得用于任何商业目的。</span></br>
+        <span>2、所有文章未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：</span>
+    </div>
+</div>
 </body>
 </html>
